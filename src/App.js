@@ -53,6 +53,21 @@ class App extends React.Component {
     })
   }
 
+  deleteComment = ( comment ) => {
+    // "preenche" a lista somente se o comentario atual
+    // percorrido for diferente do que foi passado por parametro
+
+    const filteredList = this.state.comments.filter(
+      (commentFilter) => {
+        return comment !== commentFilter
+      });
+
+    this.setState({
+      comments: filteredList,
+    });
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -65,6 +80,8 @@ class App extends React.Component {
             email={comment.email}
             date={comment.date}
             message={comment.message}
+            onDeleteComment={() => {
+              this.deleteComment(comment)}}
             />
           );
         })}
