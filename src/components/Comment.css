@@ -1,7 +1,6 @@
 .comment {
     border: 1px solid #555;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
     background-color: #eee;
     width: 80%;
-    margin: 0 auto;
 }
