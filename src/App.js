@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 import Comment from './components/Comment';
 import CommentForm from './components/CommentForm';
+import Swal from 'sweetalert2';
+
 
 class App extends React.Component {
 
@@ -9,17 +11,11 @@ class App extends React.Component {
     comments: [
       {
         name: "Delber Soares",
-        email: "delberss@hotmail.com",
+        email: "delber@delber.com",
         date: new Date(),
-        message: "Aprendendo ReactJS",
+        message: "I'm learning ReactJS!",
       },
-
-      {
-        name: "Giovanna Menoncello",
-        email: "gio@hotmail.com",
-        date: new Date(),
-        message: "Legal que você está aprendendo ReactJS",
-      },
+   
     ],
 
     form: {
@@ -43,6 +39,7 @@ class App extends React.Component {
         message:""
       }
     });
+    Swal.fire("Your comment has successfully added!","","success");
   };
 
   onFieldChanged = (event) => {
@@ -51,6 +48,24 @@ class App extends React.Component {
     
     this.setState({
       form: newCommentForm,
+    })
+  }
+
+
+  deleteCommentAlert = ( comment ) => {
+    Swal.fire({
+      title: 'Are you sure you want to delete this comment?',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: 'No, I changed my mind.',
+      icon: "question",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        this.deleteComment(comment);
+        Swal.fire('Comment deleted!', '', 'success')
+      } 
     })
   }
 
@@ -82,7 +97,7 @@ class App extends React.Component {
             date={comment.date}
             message={comment.message}
             onDeleteComment={() => {
-              this.deleteComment(comment)}}
+              this.deleteCommentAlert(comment)}}
             />
           );
         })
