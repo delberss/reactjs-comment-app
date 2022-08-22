@@ -2,6 +2,13 @@
 
 Project create using ReactJs.
 
+## Some application screenshots
+
+![](https://github.com/delberss/reactjs-comment-app/blob/master/resources/screenshots/tela1.png)
+![](https://github.com/delberss/reactjs-comment-app/blob/master/resources/screenshots/tela2.png)
+![](https://github.com/delberss/reactjs-comment-app/blob/master/resources/screenshots/tela3.png)
+![](https://github.com/delberss/reactjs-comment-app/blob/master/resources/screenshots/tela7.png)
+
 ## Available Scripts
 
 In the project directory, you can run:
