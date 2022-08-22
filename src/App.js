@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Comment from './components/Comment';
+import CommentForm from './components/CommentForm';
 
 class App extends React.Component {
 
@@ -84,43 +85,13 @@ class App extends React.Component {
               this.deleteComment(comment)}}
             />
           );
-        })}
-        <form onSubmit={this.addComment}>
-          <h2>Add a comment</h2>
-          <div>
-            <input 
-              onChange={this.onFieldChanged}
-              value={this.state.form.name}
-              type="text"
-              name="name"
-              placeholder="Type here your name"
-              required="required"
-              />
-          </div>
-
-          <div>
-            <input
-              onChange={this.onFieldChanged}
-              value={this.state.form.email}
-              type="email"
-              name="email"
-              placeholder="Type here your email"
-              required="required"
-            />
-          </div>
-
-          <div>
-            <textarea 
-              onChange={this.onFieldChanged}
-              value={this.state.form.message}
-              name="message"
-              rows="4"
-              placeholder="Type here your message"
-              required="required"
-              />
-          </div>
-          <button type="submit">Add a comment</button>
-        </form>
+        })
+        }
+        <CommentForm
+        onAddComment={this.addComment}
+        onFieldChanged={this.onFieldChanged}
+        form={this.state.form}
+        />
       </div>
     );
   }
